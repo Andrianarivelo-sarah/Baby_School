@@ -1,0 +1,245 @@
+$breakpoint-xs: 300px;
+$breakpoint-sm: 568px;
+$breakpoint-md: 800px;
+$breakpoint-lg: 1280px;
+$breakpoint-xl: 1300px;
+
+@mixin respond-to($min, $max: null) {
+  @if $max {
+    @media screen and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $min) {
+      @content;
+    }
+  }
+}
+
+#Activite {
+  @include respond-to($breakpoint-xs, 850px) {
+    height: 43vh;
+    padding-top: 20vh;
+  }
+  @include respond-to($breakpoint-sm, $breakpoint-md) {
+    padding-top: 23vh;
+  }
+}
+
+#blog {
+  @include respond-to($breakpoint-xs, 850px) {
+    margin-left: 0%;
+    gap: 1vw;
+  }
+  @include respond-to(320px, 568px) {
+    margin-top: -15%;
+    font-size: 52px;
+    width: 37%;
+    margin-left: 31%;
+  }
+}
+
+.part {
+  @include respond-to($breakpoint-xs, 850px) {
+    width: 30vw;
+    height: 20vh;
+    text-align: center;
+    margin-top: 2vw;
+    padding: 2vw;
+
+    h1 {
+      font-size: .4em;
+    }
+    h5 {
+      font-size: smaller;
+    }
+  }
+
+  @include respond-to(320px, 568px) {
+    height: 29vh;
+  }
+}
+
+#following {
+  @include respond-to($breakpoint-xs, 850px) {
+    height: 50vh;
+  }
+  @include respond-to(320px, 568px) {
+    margin-top: 10%;
+    height: 54vh;
+  }
+}
+
+.follow {
+  @include respond-to($breakpoint-xs, 850px) {
+    width: 30vh;
+    height: 5vh;
+    margin-left: .1vw;
+    margin-top: 7vw;
+
+    img {
+      width: 20vw;
+    }
+    p {
+      font-size: small;
+    }
+  }
+
+  @include respond-to(320px, 568px) {
+    margin-bottom: 10%;
+  }
+}
+
+.newLetter {
+  @include respond-to($breakpoint-xs, 850px) {
+    height: 60vh;
+  }
+}
+
+.letter {
+  @include respond-to($breakpoint-xs, 850px) {
+    width: 40vh;
+    margin-top: 15vw;
+    margin-left: 35vw;
+
+    h1 {
+      font-size: x-large;
+    }
+    p {
+      font-size: 4vw;
+    }
+    input {
+      width: 40vw;
+    }
+  }
+
+  @include respond-to($breakpoint-md, $breakpoint-lg) {
+    margin-left: 50vw;
+
+    h1 {
+      font-size: xx-large;
+    }
+  }
+
+  @include respond-to(320px, 568px) {
+    margin-top: -5%;
+    margin-left: 42%;
+
+    img {
+      width: 15%;
+    }
+  }
+}
+
+button {
+  @include respond-to($breakpoint-xs, 850px) {
+    width: 20vw;
+    margin-top: .4em;
+    padding: .3rem;
+  }
+}
+
+.ressort {
+  @include respond-to($breakpoint-xs, 850px) {
+    float: right;
+    margin-top: -14vw;
+    margin-right: -15vw;
+    padding: 1vw;
+
+    img {
+      transform: rotate(60deg);
+    }
+  }
+
+  @include respond-to(320px, 568px) {
+    img {
+      width: 39%;
+      margin-left: 10vw;
+    }
+  }
+}
+
+.map {
+  @include respond-to($breakpoint-xs, 850px) {
+    display: flex;
+    width: 70%;
+    height: 30vh;
+    margin-top: .2vw;
+    margin-left: 5vw;
+    margin-bottom: 3vw;
+  }
+}
+
+.dire {
+  @include respond-to($breakpoint-xs, 850px) {
+    width: 80%;
+    background-color: #ffaa2b;
+    padding: 3vw;
+  }
+}
+
+.sary {
+  @include respond-to($breakpoint-xs, 850px) {
+    img {
+      width: 35vw;
+      height: 30vh;
+    }
+  }
+}
+
+.gallery, .text_gallery, .div_gallery, .star, .line, .image_gallery, .image1_gallery, .div_view_gallery {
+  @include respond-to(320px, 568px) {
+    // Ton code pour ces éléments ici
+  }
+
+  @include respond-to($breakpoint-md, $breakpoint-lg) {
+    .text_gallery {
+      height: 15.4vw;
+    }
+  }
+
+  @include respond-to(884px, 1104px) {
+    .star2 img {
+      top: 2vw;
+    }
+  }
+}
+
+header {
+  @include respond-to(568px, 428px) {
+    height: 60vh;
+
+    a {
+      font-size: 3rem;
+    }
+    button {
+      margin-top: 1vw;
+    }
+  }
+
+  @include respond-to($breakpoint-lg) {
+    height: 140vh;
+  }
+}
+
+#section1 {
+  @include respond-to(568px, 428px) {
+    height: 50vh;
+    margin-top: -1vw;
+  }
+
+  @include respond-to($breakpoint-lg) {
+    height: 120vh;
+    margin-top: -0.01%;
+  }
+
+  @include respond-to($breakpoint-xl) {
+    height: 170vh;
+  }
+}
+
+
+// Mixin pour les animations
+@mixin animation($name, $duration, $iteration) {
+  animation: $name $duration $iteration;
+}

@@ -1,0 +1,40 @@
+etAttribute("lat"));
+                features.push(new OpenLayers.Feature.Vector(wpt, attrs));
+            }
+        }
+        
+        if (this.internalProjection && this.externalProjection) {
+            for (var g = 0, featLength = features.length; g < featLength; g++) {
+                features[g].geometry.transform(this.externalProjection,
+                                    this.internalProjection);
+            }
+        }
+        
+        return features;
+    },
+    
+   /**
+    * Method: extractSegment
+    *
+    * Parameters:
+    * segment - {<DOMElement>} a trkseg or rte node to parse
+    * segmentType - {String} nodeName of waypoints that form the line
+    *
+    * Returns:
+    * {<OpenLayers.Geometry.LineString>} A linestring geometry
+    */
+    extractSegment: function(segment, segmentType) {
+        var points = this.getElementsByTagNameNS(segment, segment.namespaceURI, segmentType);
+        var point_features = [];
+        for (var i = 0, len = points.length; i < len; i++) {
+            point_features.push(new OpenLayers.Geometry.Point(points[i].getAttribute("lon"), points[i].getAttribute("lat")));
+        }
+        return new OpenLayers.Geometry.LineString(point_features);
+    },
+    
+    /**
+     * Method: parseAttributes
+     *
+     * Parameters:
+     * node - {<DOMElement>}
+  
